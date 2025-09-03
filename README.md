@@ -1,10 +1,10 @@
 # Performance Analytics Dashboard
 
-- **Sales Funnel Analysis**: Track lead progression through all stages
-- **Regional Performance**: Compare Singapore vs India market performance  
-- **Project Delivery Tracking**: Monitor cost overruns, delays, and satisfaction
-- **Lead Source ROI**: Analyze conversion rates by marketing channel
-- **Customer Segment Insights**: Performance breakdown by property type
+- **Sales Funnel Analysis**: Lead progression through all stages
+- **Regional Performance**: Singapore vs India market performance  
+- **Project Delivery Tracking**: Cost overruns, delays, and satisfaction
+- **Lead Source ROI**: Conversion rates by marketing channel
+- **Customer Segment Insights**: Performance breakdown 
 
 ## 📊 Key Metrics
 
