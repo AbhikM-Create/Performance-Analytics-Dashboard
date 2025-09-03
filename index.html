@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Analytics Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="container">
+                <h1>Performance Analytics Dashboard</h1>
+                <nav class="tab-nav">
+                    <button class="tab-btn active" data-tab="sales">Sales Funnel</button>
+                    <button class="tab-btn" data-tab="regional">Regional Performance</button>
+                    <button class="tab-btn" data-tab="delivery">Project Delivery</button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <div class="container">
+                <!-- Sales Funnel Section -->
+                <section id="sales" class="tab-content active">
+                    <div class="section-header">
+                        <h2>Sales Funnel Analysis</h2>
+                        <p class="section-subtitle">Track lead progression and conversion performance</p>
+                    </div>
+
+                    <!-- KPI Cards -->
+                    <div class="kpi-grid">
+                        <div class="kpi-card success">
+                            <div class="kpi-icon">📊</div>
+                            <div class="kpi-content">
+                                <h3>Total Leads</h3>
+                                <div class="kpi-value">200</div>
+                            </div>
+                        </div>
+                        <div class="kpi-card warning">
+                            <div class="kpi-icon">🎯</div>
+                            <div class="kpi-content">
+                                <h3>Conversion Rate</h3>
+                                <div class="kpi-value">13.0%</div>
+                            </div>
+                        </div>
+                        <div class="kpi-card success">
+                            <div class="kpi-icon">💰</div>
+                            <div class="kpi-content">
+                                <h3>Pipeline Value</h3>
+                                <div class="kpi-value">SGD 17.8M</div>
+                            </div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon">📈</div>
+                            <div class="kpi-content">
+                                <h3>Avg Deal Size</h3>
+                                <div class="kpi-value">SGD 92,450</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts -->
+                    <div class="charts-grid">
+                        <div class="chart-container">
+                            <h3>Sales Funnel Progression</h3>
+                            <canvas id="funnelChart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <h3>Lead Source Performance</h3>
+                            <canvas id="leadSourceChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Tables -->
+                    <div class="tables-grid">
+                        <div class="table-panel">
+                            <h3>Customer Segment Analysis</h3>
+                            <div class="table-container">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th data-sort="segment">Segment</th>
+                                            <th data-sort="leads">Total Leads</th>
+                                            <th data-sort="closures">Closures</th>
+                                            <th data-sort="rate">Conversion Rate</th>
+                                            <th data-sort="value">Avg Deal Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="customer-segments-body">
+                                        <tr>
+                                            <td>Condo</td>
+                                            <td>61</td>
+                                            <td>12</td>
+                                            <td>19.67%</td>
+                                            <td>SGD 83,423</td>
+                                        </tr>
+                                        <tr>
+                                            <td>HDB</td>
+                                            <td>67</td>
+                                            <td>11</td>
+                                            <td>16.42%</td>
+                                            <td>SGD 89,855</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Landed</td>
+                                            <td>72</td>
+                                            <td>3</td>
+                                            <td>4.17%</td>
+                                            <td>SGD 93,165</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="table-panel">
+                            <h3>Lead Source Details</h3>
+                            <div class="table-container">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th data-sort="source">Source</th>
+                                            <th data-sort="leads">Total Leads</th>
+                                            <th data-sort="closures">Closures</th>
+                                            <th data-sort="rate">Conversion Rate</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="lead-sources-body">
+                                        <tr>
+                                            <td>Google Ads</td>
+                                            <td>38</td>
+                                            <td>8</td>
+                                            <td>21.05%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Referral</td>
+                                            <td>43</td>
+                                            <td>7</td>
+                                            <td>16.28%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Walk-in</td>
+                                            <td>44</td>
+                                            <td>5</td>
+                                            <td>11.36%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Partnership</td>
+                                            <td>41</td>
+                                            <td>4</td>
+                                            <td>9.76%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Facebook Ads</td>
+                                            <td>33</td>
+                                            <td>2</td>
+                                            <td>6.06%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Regional Performance Section -->
+                <section id="regional" class="tab-content">
+                    <div class="section-header">
+                        <h2>Regional Performance Comparison</h2>
+                        <p class="section-subtitle">Singapore vs India market analysis</p>
+                    </div>
+
+                    <div class="regional-grid">
+                        <div class="regional-card">
+                            <h3>🇸🇬 Singapore</h3>
+                            <div class="regional-metrics">
+                                <div class="metric">
+                                    <span class="metric-label">Total Leads</span>
+                                    <span class="metric-value">108</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Closures</span>
+                                    <span class="metric-value">15</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Closure Rate</span>
+                                    <span class="metric-value">13.89%</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Avg Deal Value</span>
+                                    <span class="metric-value">SGD 89,040</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="regional-card">
+                            <h3>🇮🇳 India</h3>
+                            <div class="regional-metrics">
+                                <div class="metric">
+                                    <span class="metric-label">Total Leads</span>
+                                    <span class="metric-value">92</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Closures</span>
+                                    <span class="metric-value">11</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Closure Rate</span>
+                                    <span class="metric-value">11.96%</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Avg Deal Value</span>
+                                    <span class="metric-value">SGD 89,138</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="charts-grid">
+                        <div class="chart-container">
+                            <h3>Regional Performance Comparison</h3>
+                            <canvas id="regionalChart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <h3>Customer Segment Performance</h3>
+                            <canvas id="segmentChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Project Delivery Section -->
+                <section id="delivery" class="tab-content">
+                    <div class="section-header">
+                        <h2>Project Delivery Performance</h2>
+                        <p class="section-subtitle">Track project efficiency and client satisfaction</p>
+                    </div>
+
+                    <div class="kpi-grid">
+                        <div class="kpi-card error">
+                            <div class="kpi-icon">⚠️</div>
+                            <div class="kpi-content">
+                                <h3>Avg Cost Overrun</h3>
+                                <div class="kpi-value">15.0%</div>
+                            </div>
+                        </div>
+                        <div class="kpi-card warning">
+                            <div class="kpi-icon">⏰</div>
+                            <div class="kpi-content">
+                                <h3>Avg Delay</h3>
+                                <div class="kpi-value">15.1 days</div>
+                            </div>
+                        </div>
+                        <div class="kpi-card warning">
+                            <div class="kpi-icon">😊</div>
+                            <div class="kpi-content">
+                                <h3>Avg Satisfaction</h3>
+                                <div class="kpi-value">3.06/5</div>
+                            </div>
+                        </div>
+                        <div class="kpi-card error">
+                            <div class="kpi-icon">✅</div>
+                            <div class="kpi-content">
+                                <h3>Success Rate</h3>
+                                <div class="kpi-value">4.0%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="charts-grid">
+                        <div class="chart-container">
+                            <h3>Cost Overrun vs Delay Analysis</h3>
+                            <canvas id="deliveryChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="performance-grid">
+                        <div class="performance-panel">
+                            <h3>Cost Performance Distribution</h3>
+                            <div class="performance-bars">
+                                <div class="performance-item">
+                                    <span class="performance-label">Under Budget</span>
+                                    <div class="performance-bar">
+                                        <div class="performance-fill success" style="width: 4%"></div>
+                                    </div>
+                                    <span class="performance-value">2 projects</span>
+                                </div>
+                                <div class="performance-item">
+                                    <span class="performance-label">On Budget</span>
+                                    <div class="performance-bar">
+                                        <div class="performance-fill info" style="width: 18%"></div>
+                                    </div>
+                                    <span class="performance-value">9 projects</span>
+                                </div>
+                                <div class="performance-item">
+                                    <span class="performance-label">Moderate Overrun</span>
+                                    <div class="performance-bar">
+                                        <div class="performance-fill warning" style="width: 46%"></div>
+                                    </div>
+                                    <span class="performance-value">23 projects</span>
+                                </div>
+                                <div class="performance-item">
+                                    <span class="performance-label">High Overrun</span>
+                                    <div class="performance-bar">
+                                        <div class="performance-fill error" style="width: 32%"></div>
+                                    </div>
+                                    <span class="performance-value">16 projects</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="performance-panel">
+                            <h3>Delay Performance Distribution</h3>
+                            <div class="performance-bars">
+                                <div class="performance-item">
+                                    <span class="performance-label">Early</span>
+                                    <div class="performance-bar">
+                                        <div class="performance-fill success" style="width: 0%"></div>
+                                    </div>
+                                    <span class="performance-value">0 projects</span>
+                                </div>
+                                <div class="performance-item">
+                                    <span class="performance-label">On Time</span>
+                                    <div class="performance-bar">
+                                        <div class="performance-fill info" style="width: 28%"></div>
+                                    </div>
+                                    <span class="performance-value">14 projects</span>
+                                </div>
+                                <div class="performance-item">
+                                    <span class="performance-label">Moderate Delay</span>
+                                    <div class="performance-bar">
+                                        <div class="performance-fill warning" style="width: 22%"></div>
+                                    </div>
+                                    <span class="performance-value">11 projects</span>
+                                </div>
+                                <div class="performance-item">
+                                    <span class="performance-label">High Delay</span>
+                                    <div class="performance-bar">
+                                        <div class="performance-fill error" style="width: 50%"></div>
+                                    </div>
+                                    <span class="performance-value">25 projects</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
