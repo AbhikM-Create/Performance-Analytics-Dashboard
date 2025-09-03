@@ -427,19 +427,19 @@ p {
 }
 
 .data-table th[data-sort]:after {
-  content: ' ↕️';
+  content: '↕';
   font-size: var(--font-size-xs);
   opacity: 0.5;
   margin-left: var(--space-1);
 }
 
 .data-table th.sort-asc:after {
-  content: ' ↑';
+  content: '↑';
   opacity: 1;
 }
 
 .data-table th.sort-desc:after {
-  content: ' ↓';
+  content: '↓';
   opacity: 1;
 }
 
